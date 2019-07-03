@@ -1,6 +1,4 @@
 adding first line
 modifying in test second line
 adding in test branch
-adding in master branch.
-new line added in test
 new line added in test
