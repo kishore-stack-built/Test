@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "d1064ccb-daaa-4c70-b5e2-5237b9aeac8a",
+		"name": "JenkinsTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "PaymentGatewayConnectivityCheck",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab6ffc61-ffe5-43da-a1c0-52f4f4f398ae",
+						"exec": [
+							"var template = \"<html><body><table><tr><td onClick='setStatus()'>status</td><td id='pcode'></td></tr></table><script>function setStatus() {var res='{{response.status}}';document.getElementById('pcode').innerHTML=res;};</script></body></html>\";",
+							"",
+							"",
+							"",
+							"// Set visualizer",
+							"pm.visualizer.set(template, {",
+							"    // Pass the response body parsed as JSON as `data`",
+							"    response: pm.response.json()",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "charset",
+						"value": "UTF-8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/:version/information",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						":version",
+						"information"
+					],
+					"variable": [
+						{
+							"key": "version",
+							"value": "{{version}}",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
